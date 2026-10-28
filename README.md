@@ -49,16 +49,16 @@
 ```mermaid
 flowchart TD
     subgraph Client ["플랫폼 참여자 (Client App)"]
-        Host["공간 제공자<br/>(Host / Owner)"]
-        Guest["창작자 · 이용자<br/>(Guest / Creator)"]
+        Host["공간 제공자<br/><b>Host / Owner</b>"]
+        Guest["창작자 · 이용자<br/><b>Guest / Creator</b>"]
     end
 
     subgraph Operation ["검수 및 거버넌스 (Admin Web)"]
-        Admin["관리자 콘솔<br/>(Admin Console)"]
+        Admin["관리자 콘솔<br/><b>Admin Console</b>"]
     end
 
     subgraph SystemCore ["시스템 코어 (Backend & GIS)"]
-        Backend["Spring Boot & PostGIS<br/>(API / Spatial Engine)"]
+        Backend["Spring Boot & PostGIS<br/><b>API / Spatial Engine</b>"]
     end
 
     Host -->|"1. 공간 등록 & 권한 서류 제출"| Admin
@@ -71,6 +71,15 @@ flowchart TD
     Host -->|"4. 신청서 검토 및 최종 승인"| Backend
     Backend -->|"5. 점유 확정 & 중복 예약 원천 차단"| Guest
     Admin -.->|"공간 권한 및 점유 무결성 모니터링"| Backend
+
+    style Host fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#ffffff
+    style Guest fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#ffffff
+    style Admin fill:#3b1259,stroke:#c084fc,stroke-width:2px,color:#ffffff
+    style Backend fill:#064e3b,stroke:#34d399,stroke-width:2px,color:#ffffff
+
+    style Client fill:#0f172a,stroke:#334155,stroke-width:1.5px,color:#94a3b8
+    style Operation fill:#18181b,stroke:#3f3f46,stroke-width:1.5px,color:#a1a1aa
+    style SystemCore fill:#0f172a,stroke:#334155,stroke-width:1.5px,color:#94a3b8
 ```
 
 ---
