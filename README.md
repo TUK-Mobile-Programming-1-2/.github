@@ -46,19 +46,31 @@
 
 ### 서비스 흐름도 (Workflow Architecture)
 
-```
- ┌────────────────┐          공간 등록 & 권한 서류 제출          ┌───────────────────────────┐
- │  공간 제공자   │ ─────────────────────────────────────────► │        관리자 웹          │
- │  (Host/Owner)  │ ◄───────────────────────────────────────── │     (Admin Console)       │
- └───────┬────────┘           1차 자격 검수 완료 & 승인         └───────────────────────────┘
-         │                                                                    ▲
-         │ 2차 신청서 검토                                                    │
-         │ 및 최종 점유 확정                                                  │ 권한/공간 무결성
-         ▼                                                                    │ 실시간 모니터링
- ┌────────────────┐                 단기 대여 신청 & 조건 조율                │
- │  창작자·이용자 │ ──────────────────────────────────────────────────────────┘
- │ (Guest/Creator)│
- └────────────────┘
+```mermaid
+flowchart TD
+    subgraph Client ["플랫폼 참여자 (Client App)"]
+        Host["공간 제공자<br/>(Host / Owner)"]
+        Guest["창작자 · 이용자<br/>(Guest / Creator)"]
+    end
+
+    subgraph Operation ["검수 및 거버넌스 (Admin Web)"]
+        Admin["관리자 콘솔<br/>(Admin Console)"]
+    end
+
+    subgraph SystemCore ["시스템 코어 (Backend & GIS)"]
+        Backend["Spring Boot & PostGIS<br/>(API / Spatial Engine)"]
+    end
+
+    Host -->|"1. 공간 등록 & 권한 서류 제출"| Admin
+    Admin -->|"2. 자격 검수 및 승인"| Backend
+    Backend -.->|"공간 공개 및 상태 반영"| Host
+
+    Guest -->|"3. 지도 기반 공간 탐색 & 대여 신청"| Backend
+    Backend -->|"신청 접수 알림 및 세부 협의"| Host
+
+    Host -->|"4. 신청서 검토 및 최종 승인"| Backend
+    Backend -->|"5. 점유 확정 & 중복 예약 원천 차단"| Guest
+    Admin -.->|"공간 권한 및 점유 무결성 모니터링"| Backend
 ```
 
 ---
