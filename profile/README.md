@@ -140,7 +140,7 @@ flowchart TD
 ### Backend & DB
 [![Java 21](https://img.shields.io/badge/Java%2021%20LTS-ED8B00?style=flat-square&logo=openjdk&logoColor=white)](https://openjdk.org/)
 [![Spring Boot 3.5](https://img.shields.io/badge/Spring%20Boot%203.5-6DB33F?style=flat-square&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
-[![PostGIS](https://img.shields.io/badge/Spatial%20DB-PostGIS-4169E1?style=flat-square&logo=postgresql&logoColor=white)](https://postgis.net/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-PostGIS-4169E1?style=flat-square&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Spring Security](https://img.shields.io/badge/Spring%20Security-Stateless-6DB33F?style=flat-square&logo=springsecurity&logoColor=white)](https://spring.io/projects/spring-security)
 [![Swagger](https://img.shields.io/badge/API%20Docs-OpenAPI3%20%26%20REST%20Docs-85EA2D?style=flat-square&logo=swagger&logoColor=black)](https://swagger.io/)
 
